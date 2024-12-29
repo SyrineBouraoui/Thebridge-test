@@ -1,0 +1,53 @@
+
+<div class="admin-container" >
+  <h2>Manage Courses</h2>
+
+
+  <button (click)="openAddModal()">Add New Course</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        
+        <th>Title</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses; let i = index">
+        <td>{{ i + 1 }}</td>
+        
+        <td>{{ course.title }}</td>
+        <td>{{ course.price }}</td>
+        <td>
+      
+          <button (click)="openEditModal(course)">Edit</button>
+
+         
+          <button (click)="deleteCourse(course.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showModal" class="modal">
+    <h3>{{ isEditing ? 'Edit Course' : 'Add New Course' }}</h3>
+    <form (ngSubmit)="submitForm()">
+      <label>
+        Title:
+        <input [(ngModel)]="selectedCourse.title" name="title" required />
+      </label>
+      <label>
+        Price:
+        <input [(ngModel)]="selectedCourse.price" name="price" type="number" required />
+      </label>
+     
+      <div class="modal-actions">
+        <button type="submit">{{ isEditing ? 'Update' : 'Add' }}</button>
+        <button type="button" (click)="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+spring.application.name=springtest-122
+spring.datasource.url=jdbc:mysql://localhost:3306/BridgeeDB?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password =
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+logging.level.org.springframwork.security=DEBUG
+spring.main.allow-circular-references=true
+server.port=8081
